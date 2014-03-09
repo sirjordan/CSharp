@@ -135,6 +135,11 @@ public static class Game
                     currentFigure.Move(Direction.Down);
                 }
             }
+            if (keyboardEntry.Key == ConsoleKey.Spacebar)
+            {
+                // TODO: Rotate the current figue
+                currentFigure.Rotate();
+            }
         }
     }
 
