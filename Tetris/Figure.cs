@@ -20,7 +20,7 @@ public class Figure : ICloneable
 
     public Figure()
     {
-        //this.Position = Position;
+        this.Position = new Position(0, 5); // Only to fix the appear position 
         this.Elements = new List<FigureElement>();
     }
 
@@ -43,16 +43,7 @@ public class Figure : ICloneable
 
     public void Rotate()
     { 
-        // TODO: Implement
-        char[,] rotatedBody = new char[body.GetLength(1), body.GetLength(0)];   // if 2x3 -> 3x2
-        for (int i = 0, j2 = 0; i < rotatedBody.GetLength(0); i++, j2++)
-        {
-            for (int j = 0, i2 = 0; j < rotatedBody.GetLength(1); j++, i2++)
-            {
-                rotatedBody[i, j] = this.body[i2, j2];
-            }
-        }
-        // TODO: Create a new figure and raplace it with .this
+        this.Elements = GetFigureFromArray(StaticMethods.Flip2DArray(this.Body));
     }
 
     public void Move(Direction direction)
